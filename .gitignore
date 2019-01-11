@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/WPF-DEMOS/v15
+/.vs
+/01.CodeBehind/.vs/WPF-DEMOS/v15
+/01.CodeBehind/01.CodeBehind.Tests/bin/Debug
+/01.CodeBehind/01.CodeBehind.Tests/obj
+/01.CodeBehind/02.MVVM.Tests/bin/Debug
+/01.CodeBehind/02.MVVM.Tests/obj
+/01.CodeBehind/05.RefactorCollectionBinding/bin/Debug
+/01.CodeBehind/05.RefactorCollectionBinding/obj
+/01.CodeBehind/bin/Debug
+/01.CodeBehind/obj
+/01.CodeBehind/packages
+/02.MVVM/bin/Debug
+/02.MVVM/obj
+/03.CollectionsBinding/obj
+/04.Utils/obj
+/03.CollectionsBinding/bin/Debug
+/04.Utils/bin/Debug

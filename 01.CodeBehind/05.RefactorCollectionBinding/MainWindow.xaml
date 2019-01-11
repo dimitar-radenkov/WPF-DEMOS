@@ -1,0 +1,69 @@
+﻿<Window x:Class="_05.RefactorCollectionBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="LightGray"
+        Title="MainWindow" Height="200" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Margin="5">People</TextBlock>
+            <ComboBox Margin="5" Width="180" 
+                      ItemsSource="{Binding PeopleList.Items}" 
+                      SelectedItem="{Binding PeopleList.Selected, UpdateSourceTrigger=PropertyChanged}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Icons/user.png" Width="16" Height="16" Margin="1"></Image>
+                            <TextBlock Text="{Binding FirstName}" Margin="1"></TextBlock>
+                            <TextBlock Text="{Binding LastName}" Margin="1" FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Button Margin="5" Width="80" HorizontalAlignment="Right"
+                    Command="{Binding ButtonDelete.Command}"
+                    IsEnabled="{Binding ButtonDelete.IsEnabled}">Delete</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0"   Grid.Column="2"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Margin="5">First Name</TextBlock>
+            <TextBox Margin="5" Width="100"
+                     Text="{Binding FirstName.Text, UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding FirstName.Tooltip}"
+                     Background="{Binding FirstName.Background}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1"   Grid.Column="2"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Margin="5">Last Name</TextBlock>
+            <TextBox Margin="5" Width="100" 
+                     Text="{Binding LastName.Text, UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="{Binding LastName.Tooltip}"
+                     Background="{Binding LastName.Background}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right">
+            <Button Grid.Row="4" Width="80" Margin="5"
+                    Command="{Binding ButtonAdd.Command}"
+                    IsEnabled="{Binding ButtonAdd.IsEnabled, FallbackValue=false}">Add</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
